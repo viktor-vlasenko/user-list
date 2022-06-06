@@ -1,25 +1,38 @@
+.add-user {
+  margin: 1rem;
+}
+
+.form-controls {
+  padding: 0.3rem;
+}
+
 .form-control {
-  display: flex;
-  flex-wrap:wrap;
   margin: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .form-control label {
+  font-weight: bold;
   padding: 0.1rem;
   display: block;
   color: #0e6b96;
 }
 
 .form-control input {
+  color:#3a7b99;
   display: block;
+  width: 100%;
+  max-width: 40rem;
   padding: 0.1rem;
   border: 2px solid #70afce;
   border-radius: 2px;
 }
 
-.form-control input:focus {
+.form-control input:focus, 
+.form-control input:hover,
+.form-control input:active {
   outline: #3a7b99;
   border-radius: 2px;
-  border: 2px solid #3a7b99;
-  box-shadow: 0px 0px 1px 1px #70afce;
+  border: 2px solid #7fa8bb;
+  box-shadow: 0px 0px 1px 1px #59b2db;
 }

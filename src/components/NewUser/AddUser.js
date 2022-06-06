@@ -31,7 +31,14 @@ const AddUser = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if (nameValidation(userName) && ageValidation(userAge)) {
+    let errorMessage;
+    if (userName.trim().length === 0 || userAge.trim().length === 0) {
+      errorMessage = "Name and age can't be empty";
+      props.onInputError(errorMessage);
+    } else if (+userAge < 1) {
+      errorMessage = "Age can't be less than 1";
+      props.onInputError(errorMessage);
+    } else {
       const userData = {
         name: userName,
         age: userAge,
@@ -40,34 +47,33 @@ const AddUser = (props) => {
       props.onAddUser(userData);
       setUserName("");
       setUserAge("");
-    } else {
-      let errorMessage = "Wrong Input";
-      props.onInputError(errorMessage);
     }
   };
 
   return (
-    <Card>
+    <Card className={styles["add-user"]}>
       <form onSubmit={submitHandler}>
-        <div>
-          <div className={styles['form-control']}>
-            <label>Name</label>
+        <div className={styles["form-controls"]}>
+          <div className={styles["form-control"]}>
+            <label htmlFor="username">Name</label>
             <input
+              id="username"
               type="text"
               value={userName}
               onChange={userNameChangeHandler}
             />
           </div>
-          <div className={styles['form-control']}>
-            <label>Age (Years)</label>
+          <div className={styles["form-control"]}>
+            <label htmlFor="age">Age (Years)</label>
             <input
+              id="age"
               type="number"
               value={userAge}
               onChange={userAgeChangeHandler}
             />
           </div>
-          <div className={styles['form-control']}>
-            <Button type={"submit"} text={'Add User'} />
+          <div className={styles["form-control"]}>
+            <Button type={"submit"} text={"Add User"} />
           </div>
         </div>
       </form>
