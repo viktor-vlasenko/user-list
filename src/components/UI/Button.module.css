@@ -1,0 +1,19 @@
+button {
+  width: 100%;
+  font-size: 1rem;
+  border: 1px solid #2c799d;
+  border-radius: 3px;
+  background-color: #4ba8d6;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 1px 1px #83c2df;
+}
+
+@media (min-width: 768px) {
+  button {
+    width: auto;
+  }
+}

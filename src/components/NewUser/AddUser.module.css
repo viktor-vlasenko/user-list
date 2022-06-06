@@ -1,0 +1,25 @@
+.form-control {
+  display: flex;
+  flex-wrap:wrap;
+  margin: 0.3rem;
+}
+
+.form-control label {
+  padding: 0.1rem;
+  display: block;
+  color: #0e6b96;
+}
+
+.form-control input {
+  display: block;
+  padding: 0.1rem;
+  border: 2px solid #70afce;
+  border-radius: 2px;
+}
+
+.form-control input:focus {
+  outline: #3a7b99;
+  border-radius: 2px;
+  border: 2px solid #3a7b99;
+  box-shadow: 0px 0px 1px 1px #70afce;
+}

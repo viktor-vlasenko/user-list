@@ -1,13 +1,14 @@
 import React from "react";
 import User from "./User";
+import Card from "../UI/Card";
 
 const UserList = (props) => {
   return (
-    <div>
+    <Card>
       {props.users.map((item) => (
         <User key={item.id} user={item} />
       ))}
-    </div>
+    </Card>
   );
 };
 
