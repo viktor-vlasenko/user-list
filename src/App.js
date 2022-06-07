@@ -10,8 +10,7 @@ const USERS = [
 
 function App() {
   const [users, setUsers] = useState(USERS);
-  const [errorOccured, setErrorOccured] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [error, setError] = useState();
 
   const addUserHandler = (userData) => {
     setUsers((prevUsers) => {
@@ -19,19 +18,23 @@ function App() {
     });
   };
 
-  const wrongInputHandler = (msg) => {
-    setErrorOccured(true);
-    setErrorMessage(msg);
+  const wrongInputHandler = (title, msg) => {
+    setError({ title: title, message: msg });
   };
 
   const removeNotificationHandler = () => {
-    setErrorMessage('');
-    setErrorOccured(false);
-  }
+    setError(null);
+  };
 
   return (
     <div>
-      {errorOccured && <Notification message={errorMessage} onOkClick={removeNotificationHandler} />}
+      {error && (
+        <Notification
+          title={error.title}
+          message={error.message}
+          onOkClick={removeNotificationHandler}
+        />
+      )}
       <AddUser onAddUser={addUserHandler} onInputError={wrongInputHandler} />
       <UserList users={users} />
     </div>

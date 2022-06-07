@@ -15,29 +15,17 @@ const AddUser = (props) => {
     setUserAge(event.target.value);
   };
 
-  const nameValidation = (name) => {
-    if (name.trim().length === 0) {
-      return false;
-    } else {
-      return true;
-    }
-  };
-
-  const ageValidation = (age) => {
-    if (age === "") return false;
-    else if (age < 0) return false;
-    else return true;
-  };
-
   const submitHandler = (event) => {
     event.preventDefault();
-    let errorMessage;
+    let errorMessage, title;
     if (userName.trim().length === 0 || userAge.trim().length === 0) {
+      title = "Invalid input";
       errorMessage = "Name and age can't be empty";
-      props.onInputError(errorMessage);
+      props.onInputError(title, errorMessage);
     } else if (+userAge < 1) {
+      title = "Invalid age";
       errorMessage = "Age can't be less than 1";
-      props.onInputError(errorMessage);
+      props.onInputError(title, errorMessage);
     } else {
       const userData = {
         name: userName,
