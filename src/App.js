@@ -27,7 +27,7 @@ function App() {
   };
 
   return (
-    <div>
+    <>
       {error && (
         <Notification
           title={error.title}
@@ -37,7 +37,7 @@ function App() {
       )}
       <AddUser onAddUser={addUserHandler} onInputError={wrongInputHandler} />
       <UserList users={users} />
-    </div>
+    </>
   );
 }
 
